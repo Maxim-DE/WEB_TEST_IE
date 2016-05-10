@@ -39,10 +39,11 @@ var RGB_BLEK="rgb(0,0,0)";
     function GetSettingTimeout3(link,ModeFuncCall,CallbackTrue,CallbackFalse) {
         (function _f() {
 			//var http2 = createRequestObject();
-			http2.timeout =1000;
             if( http2 ) {
 				//---------------------------------------------
                 http2.open('GET', link, true);
+				//---------------------------------------------
+				http2.timeout =1000;
 				//---------------------------------------------
                 http2.onreadystatechange = function () {
 					if (http2.readyState == 4&&http2.status == 200) {

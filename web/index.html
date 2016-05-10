@@ -1,0 +1,1548 @@
+﻿<!-- <script type="text/javascript" src="script.js"></script> -->
+
+<SCRIPT LANGUAGE='JavaScript'>
+
+function include(destination) {
+var TimerID;
+	var e=window.document.createElement('script');
+	e.setAttribute('src',destination);
+//--------------------------------------------------------------------------------
+	e.onload = function() {
+		TimerID=setTimeout(PageCondition,250);
+	}
+//--------------------------------------------------------------------------------
+	e.onerror = function() {
+		alert("Произошла ошибка загрузка javascript, пожалуйста, обновите страницу."); 
+		//include('');
+	}
+//--------------------------------------------------------------------------------
+	window.document.body.appendChild(e);
+//--------------------------------------------------------------------------------
+}
+var tmp = '';
+	//var PAGE_VAR = document.getElementById('table_conteint');
+function HideStatus() {
+	var PAGE_STATUS = document.getElementById('center_tabl_show');
+	PAGE_STATUS.hidden=true;
+	PAGE_TABL.hidden=true;
+	PAGE_SET.hidden=true;	
+}
+
+function HideSetting() {
+	var PAGE_STATUS = document.getElementById('center_tabl_show');
+	PAGE_STATUS.hidden=true;
+	PAGE_TABL.hidden=true;
+	PAGE_SET.hidden=true;	
+}
+
+function HideOption() {
+	var PAGE_STATUS = document.getElementById('page_status');
+	PAGE_STATUS.hidden=true;
+	PAGE_TABL.hidden=true;
+	PAGE_SET.hidden=true;	
+}	
+
+
+	
+	
+
+</SCRIPT>
+
+
+
+
+<html>
+<head>
+	<title>ОКБ АЛЬФА</title>
+	<meta http-equiv="Content-Type" Content="text/html; Charset=UTF-8"/>
+	<link rel="shortcut icon" href="favicon.png" type="image/png">
+	<!-- <link rel="stylesheet" href="style.css" type="text/css"> -->
+	<!-- <link rel="stylesheet" href="1/css/font-awesome.css"> -->
+	
+</head>
+<style>
+
+#IdShowAllError{
+	position: relative;
+	width: 150px;
+	height: 25px;
+}
+
+#Power56{
+	position: absolute;
+}
+
+#circle {
+	position: relative;
+	width: 8px;
+	height: 8px;
+	background: green;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+#TestPosition{
+	position: relative;
+	height:437;
+	width:814;	
+}
+.FanPower{
+	position: relative;
+	font-size: 14px;
+	
+}
+.FanPowerActiv{
+	position: relative;
+	font-size: 14px;
+	color:green;
+}
+#Id_Time{
+	position: absolute;
+	height: 25px;
+	width: 50px;
+	left: 600px;
+	top: 180px;
+}
+#Id_t1{
+	position: absolute;
+	height: 25px;
+	width: 50px;
+	left: 100px;
+	top: 80px;
+}
+#Id_FanPower{
+	position: relative;
+	height: 100px;
+	width: 200px;
+	left: 10px;
+	top: 10px;
+}
+#Id_itemPower{
+	position:relative;
+	height: 18px;
+	width: 100%;
+}
+#Id_FanPower10{
+	text-align: left;
+	position: relative;
+	height: 10px;
+	width: 30%;
+}
+#Id_t2{
+	position: absolute;
+	height: 25px;
+	width: 50px;
+	left: 600px;
+	top: 80px;
+}
+span.error {
+	color: #ff0000;
+	font-size:10px;
+	font-weight: bold;
+	padding-left: 3px;
+<!-- 	position: relative;
+	right: 100px;
+	top: 100px;	 -->	
+}
+<!-- .ImageConnect {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABa1BMVEUAAACCfXmCfXmCfXmCfXmCfXmZlZKCfXnAv7zBwL3EwsDEw8AAZgAAZwABaAABaQABagACbAACbQADcAADcQAEcgAEdAAEdQAFawUFdQAFdwAGeQAGegAGewAHbwUHfQAHfgAIggAJgwAJhAAJhQAKhgAKiAALigALiwAMjgANkAEPkwMTchMVdBQWdhQXng0ZoA8cexsmfSYngSUxjC0zhjJBnjtBozlCmz5CojtDnT1EkkNEl0FEl0JEmT9EmUBEnT9Eoz1FlkNFl0JFmUFGlURGlkRGnUFGn0FHlEZHlUZHl0RHl0ZHmkNIpUFJlEhJnUVKlUlLlEtMlktNlU1Plk9Rl1FxuWtyt253unN6uXaDtYOEuIOS1I6V2JKi1J6j1Z+mzaapzKiu0q2w2K2x26252be/2r7C4r/D38HE4sHj4uHv9u/w+O/x+fDz+fLz+fPz+vP0+fT49/f5+fn5/Pn6/fr7/fr7/fsfdwklAAAADHRSTlMAIEaNo8fl8fHx+fno1c1RAAAA3UlEQVQY013PPUoEQRAG0Kqvqrp7YIM1cVG8gyCCoYGZp9DExJ+7CJqYuPcRc1FQhEXFDQZlwXFmu8rARLzBe0xEBAbIPZyImIghdlComw7Vg5hY7Hj4bnkl6+VQg0nS2dtdIGtZnZz3VaCn83sk5JT7unsTylafs0KSgBdjq2xH8WjR9rVntm29UpSX8tm+LqAANztQIp69f1TRJMIjIvVu9FQdmk2ENzqHT1N4SDJNZs21I4ayHwxAJW3lZUjQ7d76g5qpba5dLJ2JRU+6r1meNOmXTgzRwz+5f/0fuDNcVe/CjzIAAAAASUVORK5CYII=");
+	position: absolute;
+	height: 16px;
+	width: 16px;
+	cursor:pointer;
+	left: 731px;
+	top: 0px;
+}
+
+.ImageDisconnect { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABp1BMVEUAAACCfXmCfXmCfXmCfXmCfXmZlZGZlZKalZKalpKCfXnBvbrBvrrBv7vCv7vCv7zEwb7Ewr7Fwb7Fwr7Fwr/KAADLAADLAgDMAADMBQDMBQXMCAXOCADPCwDPDADQDQDQGxvSEgDTEwDTFADTFQDUIRPVGQDVLibVNTLWGgDWJhTXHQDXHgDXLS3YIADYKRTYQ0PZIQDZRkbZSUjZSUnaIwDaJADaQkLaQ0PaRETaRkbaS0vaTUvbJQDbOiXbQkLcJwDcPz/cQEDcQUHcQ0PcUk3dKgDdVk/eLADeLQDePj7eRUXeWVHfLwHfMAHfPT3fPz/gMAHgMgLgOzvgQUHiNwfjOAnjOzvjXEHkOTnkOw3kPA/kPT3k4eHk4uHlPxPmQhjmg4PnZEHnhoPoRh7oRyDoZkLodnbpbm7pc3PqTSrqa2vrTy3sUzPsUzTsb07tpqbtqajwXUPwXkbyt7fzuK30np70n5/0xL71wcH3v7/3wcH3wrT49/f5tKn5xrz5+fn6t6/87+/88O/98/P99fT+8vL+8/P+9PL+9fT++fj++vr//PsY2pitAAAAFXRSTlMAIEaNo8fn5+fn8fX19fX1/f39/f0D+PqAAAAA70lEQVQY02NgAAImZlYuLlZmJgYIYGTmFImrrY0T4WBmBPNZ+BvaqrIzKlsa+FlAIsz83WWRwV5O9pYF3fzMQP0cDeXh/o7mlkYm1oUN7EwMzCLtMQHOlkbGNq7uPq0izAyscdUhLlYGGuqqWvp2FXGsDFy1md4WCtJyypp6pmYRtVxAgXRdKXFZFR1bD7+gNKAAa1yJhKiMkrZDYFh8Qg1QC7NQk5i4vJqZb1RqTm6HIDMDE1tDoqSijltoSl5xHchaBmaermRlQ8/orKLGHl5msNO5G5pLk/LrOxv4WCCeYWYTiAV6Tpgd4jk07wMA01UytekG6TYAAAAASUVORK5CYII="); 
+	position: absolute;
+	height: 16px;
+	width: 16px;
+	cursor:pointer;
+	left: 731px;
+	top: 0px;
+} -->
+/*------------------------------------------------------------------------------------------- */
+.TextVariables{
+	position: relative;
+	height: 16px;
+	width: 16px;
+	left: 731px;
+	top: 137px;
+}
+/*------------------------------------------------------------------------------------------- */
+#ContentImage{
+	float:left;
+	height: 100px;
+	width: 200px;
+	clear:left;
+
+}
+#triangle-right {
+	width: 0px;
+	height: 0px;
+	border-top: 50px solid transparent;
+	border-left: 100px solid red;
+	border-bottom: 50px solid transparent;
+/* 	border-width:2px;
+	border-color:black;	 */
+	
+}
+#OfsetLine {
+	position: relative;
+	width: 200px;
+	height: 3px;	
+	top: 50%;
+}
+#Iine {
+	width: 200px;
+	height: 2px;
+	background: black;
+}
+/*------------------------------------------------------------------------------------------- */
+.style_log_option{
+	color:blue;
+}
+.style_log_bad{
+	color:red;
+}
+.style_log_good{
+	color:green;
+}
+.style_log_nomber{
+	float: left;
+	clear: left;
+	width: 10%;
+}
+.style_log_content{
+	float: left;
+	width: 60%;
+	text-align:left	
+}
+.style_log_time{
+	float: left;
+	width: 30%;
+}
+/*------------------------------------------------------------------------------------------- */
+
+
+#body_outer_100 {
+    clear: left;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#header {
+	/* border-bottom: 1px solid #FFFFFF; */
+    clear: left;
+	float: left;
+	/* position: absolute; */
+	width: 1064px;
+/*     height: 167px;
+    margin: 0;
+    padding: 0;
+    width: 100%; */
+}
+
+
+
+H1 {color:#000000;text-align:center}
+.myclass {font-style:italic}
+#myid {background:yellow}
+
+/* .fa-circle-o:before {
+  content: "\f10c";
+} */
+/* .fa-circle-o:before{content:"\f10c"} */
+
+
+
+
+#wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.w1 {
+    display: table-row;
+    width: 100%;
+}
+.w2 {
+    padding-right: 40px;
+    position: relative;
+    width: 100%;
+}
+.header{
+	background-color: #0099FF;
+}
+.hide{
+	display:none;
+}
+.hl{
+	background-color: #3333FF;
+}
+#main {
+	width: 100%;
+	background-color: #CCCC00;
+	position: relative;
+	float: left;
+}
+
+#end {
+	width: 100%;
+	background-color: #9999FF;
+}
+#page {
+	background-color: #00CC66;
+	width: 20%;
+	position: relative;
+}
+
+#page1 {
+	background-color: #00CC66;
+	width: 20%;
+	left: 20%;
+	position: relative;
+	top: 0%;
+	clip: rect(0em,0px,0px,0px);
+	overflow: auto;
+}
+#page3 {
+	background-color: #00CC66;
+	left: 40%;
+	position: relative;
+}
+body{
+	margin:0px;
+	background-color: #e7e8e0;
+}
+#left {
+
+	float:left;
+/* position: absolute; */
+	/* left: 190px; */
+	/* top: 0px;   */
+	height: 181px;
+	width: 232px;
+	clear:left;
+
+
+/* 	position: relative;
+	width: 15%;
+	background-color: #e7e8e0;
+	float: left; */
+}
+#right {
+	background-color: #FFCC00;
+	width: 30%;
+	position: relative;
+	float: right;
+}
+#center {
+	position: relative;
+	width: 40%;
+	background-color: #CC9933;
+	float: left;
+}
+#main6 {
+	background-color: #CCCCCC;
+	clear: left;
+	float: left;
+}
+#p1{
+	color: rgb(0, 112, 128);
+	font-family: Times New Roman, Arial, Verdana;
+}
+
+#header_left {
+	clear: left;
+	float: left;
+	height: 167px;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background-attachment: scroll;
+	background-color: #99CC00;
+
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+#header_right {
+	clear: right;
+	float: right;
+	height: 167px;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background-attachment: scroll;
+	background-color: #FF6699;
+
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+#main123 {
+	background-color: #66FF00;
+	position: relative;
+	width: 100%;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-weight: normal;
+	font-family: "Times New Roman", Times, serif;
+	font-style: normal;
+	clear: left;
+	float: left;
+	height: auto;
+	background-position: left top;
+}
+.style1 {
+	font-size: 36px;
+	font-weight: bold;
+}
+#form_left {
+	position: relative;
+	width: 30%;
+	background-color: #FFCC00;
+	float: left;
+}
+
+#form_right {
+	background-color: #CC0000;
+	width: 70%;
+	position: relative;
+	float: right;
+}
+#form_center {
+	position: relative;
+	width: 100%;
+	background-color: #CC9933;
+	float: left;
+}
+
+.CLEAR_OK {
+	background-color: #669966;
+	position: absolute;
+}
+#copy_right {
+    clear: left;
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.style1 {
+	font-size: 36px;
+	font-weight: bold;
+}
+.tabl {
+	font-size: 16px;
+	background-color: #C7C7CB;
+}
+.tabl4 {
+	font-size: 16px;
+	background-color: #C7C7CB;
+}
+
+.tabltabl2 {
+	font-size: 18px;
+	background-color: #FF9933;
+}
+.my-input {
+	color: green;
+	height:22px;
+	width:20%;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+a:link, a:visited {
+	color: #000000;
+	font-weight: normal;
+	text-decoration: none;
+	background-attachment: scroll;
+	background-color: #FFCC00;
+	background-image: none;
+	background-repeat: repeat;
+	background-position: 0 0;
+}
+a:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+	<!-- background-image: url(u01.png); -->
+
+#image123 {
+	background-color: #FFFFFF;
+	background-attachment: inherit;
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: relative;
+<!-- 	height:200;
+	width:300; -->
+}
+
+#center_tabl {
+	position: relative;
+	float: left;
+}
+#center_tab123 {
+	width: 100%;
+	float: left;
+	left: 0px;
+	top: 40px;
+	
+}
+
+#table_1 {
+	background-color: #EFEFEF;
+	font-weight: bold;
+}
+#table_left {
+	background-color: #d0d0e0;
+	font-family: "Times New Roman", Times, serif;	
+	font-weight: normal;	
+}
+#table_log{
+	background-color: #e7e8e0;	
+	width:5%;
+	font-weight: normal;	
+}
+#table_log1{
+	background-color: #e7e8e0;	
+		width:15%;
+	font-weight: normal;		
+}
+#table_log2{
+	background-color: #e7e8e0;	
+	width:80%;
+	font-weight: normal;
+	text-align: left;
+	padding-left: 10px	
+}
+#center_tabl_show_TEST{
+
+	float:left;
+/* position: absolute; */
+	/* left: 190px; */
+	/* top: 0px;   */
+	width: 832px;
+	height: 681px;
+}
+#table_conteint{
+	position: relative;
+	visibility: visible;
+	height: auto;
+	width: auto;
+	background-position: center top;
+}
+#center_tabl_show{
+	position: relative;
+	visibility: visible;
+	height: auto;
+	width: auto;
+	background-position: center top;
+}
+
+#table_right {
+	background-color: #d0d0d0;
+	font-weight: normal;	
+}
+
+
+#error_loading{
+	position: absolute;
+	height: 36px;
+	width: 111px;
+	background-position: center top;
+	left: 334px;
+	top: 159px;
+}
+
+.style4 {color: #66CC00}
+.style5 {
+	color: #CCFF00;
+	font-weight: bold;
+}
+
+.my-flex-container {
+  display: flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:flex-start;  
+}
+.my-flex-container2{
+  display: flex;
+  flex-direction:row;
+  justify-content:flex-start;
+  align-items:flex-start;  
+}
+
+.my-flex-block{
+
+}
+
+.my-flex-block_Activ{
+  	position: relative;
+	width: 8px;
+	height: 8px;
+	top:5px;
+	background: green;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+#ShowHelp {
+	font-size: 16px;
+  overflow-wrap: normal;  /* не поддерживает IE, Firefox; является копией word-wrap */ 
+  word-wrap: normal;
+  word-break: normal;  /* не поддерживает Opera12.14, значение keep-all не поддерживается IE, Chrome */ 
+  line-break: auto;  /* нет поддержки для русского языка */ 
+  hyphens: manual;  /* значение auto не поддерживается Chrome */ 
+  width: 50%;
+}
+
+.TButt{
+	width: 150;
+}
+
+.TlimInput {
+    width: 70px; /* Ширина в пикселах */
+}
+
+</style>
+<!-- ============================================================================================-->
+<!-- <style onLoad="include2('style.css');">
+</style>
+ -->
+<!--============================================================================================-->
+<body class="" style="font-size: 80%;" onLoad="include('script.js');">
+<!-- <body> -->
+
+<div id="body_outer_100">
+
+	<div id="header">
+		<h1>ОКБ Альфа, Блок контроля ОЖ</h1>
+	</div>
+      <div id="left">
+        <p>
+          <input class="TButt" id="IdPageCondition" name="But_var" type="button" disabled="disabled" onClick="PageCondition()" value="Состояние"  >
+		</p>
+        <p>         
+          <input class="TButt" id="IdPageOptions" name="But_set" type="button" disabled="disabled" onClick="PageOptions()" value="Параметры">
+        </p>
+        <p>
+          <input class="TButt" id="IdPageSetting" name="But_status" type="button" disabled="disabled" onClick="PageSetting()" value="Настройки">
+	    </p>
+		<p>
+		<input class="TButt" id="IdShowAllError" type="button" onClick="ShowAllError()" disabled="disabled" value="Показать все аварии">
+		</p>
+		<p>
+		<input class="TButt" id="IdHelp" type="button" onClick="ShowHelp()" disabled="disabled" value="Помощь">
+		</p>		
+
+</div>
+
+        <!-- <p align="center" class="style1"></p> -->
+		<div id="center_tabl_show_TEST">
+<!-- ==============================================================================================-->			
+			<!-- <div id="center_tabl_show_TEST12" hidden="" >center_tabl_show_TEST12</div> -->
+<!-- ==============================================================================================-->			
+			<div id="center_tabl_show">
+				<table width="90%" border="1" cellspacing="1" cellpadding="1" id="center_tabl" >
+						<tr>
+						  <th width="37%" align="left" class="tabl">Наименование блока</th>
+						  <td width="63%" id="TablCondNameOfTheUnit" class="tabl"></td>
+						</tr>
+						<tr>
+						  <th align="left" class="tabl">Серийный номер</th>
+						  <td class="tabl" id="TablCondSerNumber">&nbsp;</td>
+						</tr>
+						<tr>
+						  <th align="left" class="tabl">IP-адрес</th>
+						  <td class="tabl" id="TablCond_Ip_adress" >&nbsp;</td>
+						</tr>
+						<tr>
+						  <th colspan="2" id="image123">
+
+							<div id="TestPosition" class="container123">
+
+							
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.2" width="215.6mm" height="115.7mm" viewBox="0 0 21560 11570" preserveAspectRatio="xMidYMid" fill-rule="evenodd" clip-path="url(#presentation_clip_path)" stroke-width="28.222" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+ <defs class="ClipPathGroup">
+  <clipPath id="presentation_clip_path" clipPathUnits="userSpaceOnUse">
+   <rect x="0" y="0" width="21560" height="11570"/>
+  </clipPath>
+ </defs>
+ <defs class="TextShapeIndex">
+  <g ooo:slide="id1" ooo:id-list="id3 id4 id5 id6 id7 id8 id9 id10 id11 id12 id13 id14 id15 id16 id17 id18 id19 id20 id21 id22 id23 id24 id25 id26 id27 id28 id29 id30 id31 id32 id33 id34 id35 id36 id37 id38 id39 id40 id41 id42 id43 id44 id45 id46 id47 id48 id49 id50 id51 id52 id53 id54 id55 id56 id57 id58 id59 id60 id61 id62 id63 id64 id65 id66 id67 id68 id69 id70 id71 id72 id73 id74 id75"/>
+ </defs>
+ <defs class="EmbeddedBulletChars">
+  <g id="bullet-char-template(57356)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 580,1141 L 1163,571 580,0 -4,571 580,1141 Z"/>
+  </g>
+  <g id="bullet-char-template(57354)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 8,1128 L 1137,1128 1137,0 8,0 8,1128 Z"/>
+  </g>
+  <g id="bullet-char-template(10146)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 174,0 L 602,739 174,1481 1456,739 174,0 Z M 1358,739 L 309,1346 659,739 1358,739 Z"/>
+  </g>
+  <g id="bullet-char-template(10132)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 2015,739 L 1276,0 717,0 1260,543 174,543 174,936 1260,936 717,1481 1274,1481 2015,739 Z"/>
+  </g>
+  <g id="bullet-char-template(10007)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 0,-2 C -7,14 -16,27 -25,37 L 356,567 C 262,823 215,952 215,954 215,979 228,992 255,992 264,992 276,990 289,987 310,991 331,999 354,1012 L 381,999 492,748 772,1049 836,1024 860,1049 C 881,1039 901,1025 922,1006 886,937 835,863 770,784 769,783 710,716 594,584 L 774,223 C 774,196 753,168 711,139 L 727,119 C 717,90 699,76 672,76 641,76 570,178 457,381 L 164,-76 C 142,-110 111,-127 72,-127 30,-127 9,-110 8,-76 1,-67 -2,-52 -2,-32 -2,-23 -1,-13 0,-2 Z"/>
+  </g>
+  <g id="bullet-char-template(10004)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 285,-33 C 182,-33 111,30 74,156 52,228 41,333 41,471 41,549 55,616 82,672 116,743 169,778 240,778 293,778 328,747 346,684 L 369,508 C 377,444 397,411 428,410 L 1163,1116 C 1174,1127 1196,1133 1229,1133 1271,1133 1292,1118 1292,1087 L 1292,965 C 1292,929 1282,901 1262,881 L 442,47 C 390,-6 338,-33 285,-33 Z"/>
+  </g>
+  <g id="bullet-char-template(9679)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 813,0 C 632,0 489,54 383,161 276,268 223,411 223,592 223,773 276,916 383,1023 489,1130 632,1184 813,1184 992,1184 1136,1130 1245,1023 1353,916 1407,772 1407,592 1407,412 1353,268 1245,161 1136,54 992,0 813,0 Z"/>
+  </g>
+  <g id="bullet-char-template(8226)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 346,457 C 273,457 209,483 155,535 101,586 74,649 74,723 74,796 101,859 155,911 209,963 273,989 346,989 419,989 480,963 531,910 582,859 608,796 608,723 608,648 583,586 532,535 482,483 420,457 346,457 Z"/>
+  </g>
+  <g id="bullet-char-template(8211)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M -4,459 L 1135,459 1135,606 -4,606 -4,459 Z"/>
+  </g>
+ </defs>
+ <defs class="TextEmbeddedBitmaps"/>
+ <g>
+  <g id="id2" class="Master_Slide">
+   <g id="bg-id2" class="Background"/>
+   <g id="bo-id2" class="BackgroundObjects"/>
+  </g>
+ </g>
+ <g class="SlideGroup">
+  <g>
+   <g id="id1" class="Slide" clip-path="url(#presentation_clip_path)">
+    <g class="Page">
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id3">
+       <path fill="rgb(255,255,255)" stroke="none" d="M 10800,11570 L 40,11570 40,30 21560,30 21560,11570 10800,11570 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id4">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 3600,9300 L 3092,9300"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 2584,9300 L 2076,9300"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 1568,9300 L 1060,9300"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 552,9300 L 100,9300 100,9244"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 100,8736 L 100,8228"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 100,7720 L 100,7212"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 100,6704 L 100,6196"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 100,5688 L 100,5180"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 100,4672 L 100,4164"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 100,3656 L 100,3148"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 100,2640 L 100,2132"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 100,1624 L 100,1116"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 100,608 L 100,100 100,100"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 608,100 L 1116,100"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 1624,100 L 2132,100"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 2640,100 L 3148,100"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 3656,100 L 4164,100"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4672,100 L 5180,100"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 5688,100 L 6196,100"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 6704,100 L 7100,100 7100,212"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 7100,720 L 7100,1228"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 7100,1736 L 7100,2244"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 7100,2752 L 7100,3260"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 7100,3768 L 7100,4276"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 7100,4784 L 7100,5292"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 7100,5800 L 7100,6308"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 7100,6816 L 7100,7324"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 7100,7832 L 7100,8340"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 7100,8848 L 7100,9300 7044,9300"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 6536,9300 L 6028,9300"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 5520,9300 L 5012,9300"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4504,9300 L 3996,9300"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id5">
+       <path fill="rgb(255,255,255)" stroke="none" d="M 2100,8900 L 600,8900 600,2900 3600,2900 3600,8900 2100,8900 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 2100,8900 L 600,8900 600,2900 3600,2900 3600,8900 2100,8900 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id6">
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 600,4900 L 3600,4900"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id7">
+       <path fill="rgb(255,255,255)" stroke="none" d="M 13850,1900 L 13100,1900 13100,900 14600,900 14600,1900 13850,1900 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 13850,1900 L 13100,1900 13100,900 14600,900 14600,1900 13850,1900 Z"/>
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="13541" y="1540"><tspan fill="rgb(0,0,0)" stroke="none">ФС</tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id8">
+       <path fill="rgb(255,255,255)" stroke="none" d="M 13850,3400 L 13100,3400 13100,2400 14600,2400 14600,3400 13850,3400 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 13850,3400 L 13100,3400 13100,2400 14600,2400 14600,3400 13850,3400 Z"/>
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="13406" y="3040"><tspan fill="rgb(0,0,0)" stroke="none">УМ1</tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id9">
+       <path fill="rgb(255,255,255)" stroke="none" d="M 13850,4900 L 13100,4900 13100,3900 14600,3900 14600,4900 13850,4900 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 13850,4900 L 13100,4900 13100,3900 14600,3900 14600,4900 13850,4900 Z"/>
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="13406" y="4540"><tspan fill="rgb(0,0,0)" stroke="none">УМ2</tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id10">
+       <path fill="none" stroke="rgb(102,51,0)" stroke-width="60" d="M 9630,1400 L 13100,1400"/>
+       <path fill="rgb(102,51,0)" stroke="none" d="M 9200,1400 L 9650,1550 9650,1250 9200,1400 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id11">
+       <path fill="none" stroke="rgb(102,51,0)" stroke-width="60" d="M 9630,2900 L 13100,2900"/>
+       <path fill="rgb(102,51,0)" stroke="none" d="M 9200,2900 L 9650,3050 9650,2750 9200,2900 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id12">
+       <path fill="none" stroke="rgb(102,51,0)" stroke-width="60" d="M 9630,4400 L 13100,4400"/>
+       <path fill="rgb(102,51,0)" stroke="none" d="M 9200,4400 L 9650,4550 9650,4250 9200,4400 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id13">
+       <path fill="none" stroke="rgb(0,0,255)" stroke-width="200" d="M 15600,5900 L 20600,5900"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.ConnectorShape">
+      <g id="id14">
+       <path fill="none" stroke="rgb(51,51,255)" stroke-width="60" d="M 16434,5900 L 16434,4400 15030,4400"/>
+       <path fill="rgb(51,51,255)" stroke="none" d="M 14600,4400 L 15050,4550 15050,4250 14600,4400 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.ConnectorShape">
+      <g id="id15">
+       <path fill="none" stroke="rgb(51,51,255)" stroke-width="60" d="M 18100,5900 L 18100,2900 15030,2900"/>
+       <path fill="rgb(51,51,255)" stroke="none" d="M 14600,2900 L 15050,3050 15050,2750 14600,2900 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.ConnectorShape">
+      <g id="id16">
+       <path fill="none" stroke="rgb(51,51,255)" stroke-width="60" d="M 19766,5900 L 19766,1400 15030,1400"/>
+       <path fill="rgb(51,51,255)" stroke="none" d="M 14600,1400 L 15050,1550 15050,1250 14600,1400 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id17">
+       <path fill="rgb(255,255,255)" stroke="none" d="M 13050,7900 L 11500,7900 11500,5900 14600,5900 14600,7900 13050,7900 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 13050,7900 L 11500,7900 11500,5900 14600,5900 14600,7900 13050,7900 Z"/>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id18">
+        <path fill="rgb(255,255,255)" stroke="none" d="M 15600,7900 C 15883,7900 16100,7683 16100,7400 16100,7117 15883,6900 15600,6900 15317,6900 15100,7117 15100,7400 15100,7683 15317,7900 15600,7900 Z M 15100,7900 L 15100,7900 Z M 16101,6899 L 16101,6899 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 15600,7900 C 15883,7900 16100,7683 16100,7400 16100,7117 15883,6900 15600,6900 15317,6900 15100,7117 15100,7400 15100,7683 15317,7900 15600,7900 Z"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id19">
+        <path id="Id_StatusPump1" fill="rgb(255,255,255)" stroke="none" d="M 15601,7100 L 15901,7601 15300,7601 15601,7100 Z M 15300,7100 L 15300,7100 Z M 15901,7601 L 15901,7601 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 15601,7100 L 15901,7601 15300,7601 15601,7100 Z"/>
+       </g>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id20">
+        <path fill="rgb(255,255,255)" stroke="none" d="M 20600,7900 C 20883,7900 21100,7683 21100,7400 21100,7117 20883,6900 20600,6900 20317,6900 20100,7117 20100,7400 20100,7683 20317,7900 20600,7900 Z M 20100,7900 L 20100,7900 Z M 21101,6899 L 21101,6899 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 20600,7900 C 20883,7900 21100,7683 21100,7400 21100,7117 20883,6900 20600,6900 20317,6900 20100,7117 20100,7400 20100,7683 20317,7900 20600,7900 Z"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id21">
+        <path fill="rgb(153,204,255)" stroke="none" d="M 20601,7100 L 20901,7601 20300,7601 20601,7100 Z M 20300,7100 L 20300,7100 Z M 20901,7601 L 20901,7601 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 20601,7100 L 20901,7601 20300,7601 20601,7100 Z"/>
+       </g>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.OpenBezierShape">
+      <g id="id22">
+       <path fill="none" stroke="rgb(51,51,255)" stroke-width="60" d="M 14099,7900 C 14099,8167 14099,8433 14099,8700 14599,8700 15100,8700 15600,8700 15600,8433 15600,8453 15600,8330"/>
+       <path fill="rgb(51,51,255)" stroke="none" d="M 15600,7900 L 15450,8350 15750,8350 15600,7900 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.OpenBezierShape">
+      <g id="id23">
+       <path fill="none" stroke="rgb(0,0,255)" stroke-width="60" d="M 13050,7900 C 13050,8400 13050,8900 13050,9400 15567,9400 18083,9400 20600,9400 20600,8900 20600,8687 20600,8330"/>
+       <path fill="rgb(0,0,255)" stroke="none" d="M 20600,7900 L 20450,8350 20750,8350 20600,7900 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id24">
+       <path fill="none" stroke="rgb(51,51,255)" stroke-width="60" d="M 15600,6900 L 15600,5900"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id25">
+       <path fill="none" stroke="rgb(51,51,255)" stroke-width="60" d="M 20600,6900 L 20600,5900"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id26">
+       <path fill="rgb(255,255,255)" stroke="none" d="M 8099,10100 L 7799,9599 8400,9599 8099,10100 Z M 8400,10100 L 8400,10100 Z M 7799,9599 L 7799,9599 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 8099,10100 L 7799,9599 8400,9599 8099,10100 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id27">
+       <path fill="rgb(0,0,0)" stroke="none" d="M 8100,10099 L 8601,9799 8601,10400 8100,10099 Z M 8100,10400 L 8100,10400 Z M 8601,9799 L 8601,9799 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 8100,10099 L 8601,9799 8601,10400 8100,10099 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id28">
+       <path fill="rgb(255,255,255)" stroke="none" d="M 8100,10101 L 7599,10401 7599,9800 8100,10101 Z M 8100,9800 L 8100,9800 Z M 7599,10401 L 7599,10401 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 8100,10101 L 7599,10401 7599,9800 8100,10101 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.ConnectorShape">
+      <g id="id29">
+       <path fill="none" stroke="rgb(0,0,204)" stroke-width="200" d="M 2100,8900 L 2100,10100 7600,10100"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.ConnectorShape">
+      <g id="id30">
+       <path fill="none" stroke="rgb(0,0,255)" stroke-width="60" d="M 8600,10100 L 8941,10100"/>
+       <path fill="rgb(0,0,255)" stroke="none" d="M 9371,10100 L 8921,9950 8921,10250 9371,10100 Z"/>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id31">
+        <path fill="rgb(255,255,255)" stroke="none" d="M 5200,2000 C 5767,2000 6200,2433 6200,3000 6200,3567 5767,4000 5200,4000 4633,4000 4200,3567 4200,3000 4200,2433 4633,2000 5200,2000 Z M 4200,2000 L 4200,2000 Z M 6201,4001 L 6201,4001 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5200,2000 C 5767,2000 6200,2433 6200,3000 6200,3567 5767,4000 5200,4000 4633,4000 4200,3567 4200,3000 4200,2433 4633,2000 5200,2000 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 4200,2000 L 4200,2000 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 6201,4001 L 6201,4001 Z"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id32">
+        <path fill="rgb(255,255,255)" stroke="none" d="M 5200,3200 C 5313,3200 5400,3113 5400,3000 5400,2887 5313,2800 5200,2800 5087,2800 5000,2887 5000,3000 5000,3113 5087,3200 5200,3200 Z M 5000,3200 L 5000,3200 Z M 5401,2799 L 5401,2799 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 5200,3200 C 5313,3200 5400,3113 5400,3000 5400,2887 5313,2800 5200,2800 5087,2800 5000,2887 5000,3000 5000,3113 5087,3200 5200,3200 Z"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id33">
+        <path fill="rgb(153,204,255)" stroke="none" d="M 5800,2867 C 6027,2867 6200,2925 6200,3000 6200,3075 6027,3133 5800,3133 5573,3133 5400,3075 5400,3000 5400,2925 5573,2867 5800,2867 Z M 5400,2867 L 5400,2867 Z M 6201,3134 L 6201,3134 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5800,2867 C 6027,2867 6200,2925 6200,3000 6200,3075 6027,3133 5800,3133 5573,3133 5400,3075 5400,3000 5400,2925 5573,2867 5800,2867 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5400,2867 L 5400,2867 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 6201,3134 L 6201,3134 Z"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id34">
+        <path fill="rgb(153,204,255)" stroke="none" d="M 4600,2867 C 4827,2867 5000,2925 5000,3000 5000,3075 4827,3133 4600,3133 4373,3133 4200,3075 4200,3000 4200,2925 4373,2867 4600,2867 Z M 4200,2867 L 4200,2867 Z M 5001,3134 L 5001,3134 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 4600,2867 C 4827,2867 5000,2925 5000,3000 5000,3075 4827,3133 4600,3133 4373,3133 4200,3075 4200,3000 4200,2925 4373,2867 4600,2867 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 4200,2867 L 4200,2867 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5001,3134 L 5001,3134 Z"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id35">
+        <path fill="rgb(153,204,255)" stroke="none" d="M 5067,2400 C 5067,2173 5125,2000 5200,2000 5275,2000 5333,2173 5333,2400 5333,2627 5275,2800 5200,2800 5125,2800 5067,2627 5067,2400 Z M 5067,2800 L 5067,2800 Z M 5334,1999 L 5334,1999 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5067,2400 C 5067,2173 5125,2000 5200,2000 5275,2000 5333,2173 5333,2400 5333,2627 5275,2800 5200,2800 5125,2800 5067,2627 5067,2400 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5067,2800 L 5067,2800 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5334,1999 L 5334,1999 Z"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id36">
+        <path fill="rgb(153,204,255)" stroke="none" d="M 5067,3600 C 5067,3373 5125,3200 5200,3200 5275,3200 5333,3373 5333,3600 5333,3827 5275,4000 5200,4000 5125,4000 5067,3827 5067,3600 Z M 5067,4000 L 5067,4000 Z M 5334,3199 L 5334,3199 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5067,3600 C 5067,3373 5125,3200 5200,3200 5275,3200 5333,3373 5333,3600 5333,3827 5275,4000 5200,4000 5125,4000 5067,3827 5067,3600 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5067,4000 L 5067,4000 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5334,3199 L 5334,3199 Z"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id37">
+        <path fill="rgb(153,204,255)" stroke="none" d="M 5529,2483 C 5689,2322 5852,2240 5905,2293 5958,2346 5877,2510 5716,2670 5556,2831 5392,2912 5339,2859 5286,2806 5368,2643 5529,2483 Z M 5246,2766 L 5246,2766 Z M 6001,2387 L 6001,2387 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5529,2483 C 5689,2322 5852,2240 5905,2293 5958,2346 5877,2510 5716,2670 5556,2831 5392,2912 5339,2859 5286,2806 5368,2643 5529,2483 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5246,2766 L 5246,2766 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 6001,2387 L 6001,2387 Z"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id38">
+        <path fill="rgb(153,204,255)" stroke="none" d="M 5549,3517 C 5710,3677 5873,3759 5926,3706 5979,3653 5899,3488 5738,3328 5578,3167 5413,3087 5360,3140 5307,3193 5389,3356 5549,3517 Z M 5266,3234 L 5266,3234 Z M 6022,3611 L 6022,3611 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5549,3517 C 5710,3677 5873,3759 5926,3706 5979,3653 5899,3488 5738,3328 5578,3167 5413,3087 5360,3140 5307,3193 5389,3356 5549,3517 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5266,3234 L 5266,3234 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 6022,3611 L 6022,3611 Z"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id39">
+        <path fill="rgb(153,204,255)" stroke="none" d="M 4872,2462 C 4713,2302 4549,2220 4496,2273 4443,2326 4524,2491 4684,2651 4843,2811 5008,2891 5061,2838 5114,2785 5032,2622 4872,2462 Z M 5155,2744 L 5155,2744 Z M 4399,2368 L 4399,2368 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 4872,2462 C 4713,2302 4549,2220 4496,2273 4443,2326 4524,2491 4684,2651 4843,2811 5008,2891 5061,2838 5114,2785 5032,2622 4872,2462 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5155,2744 L 5155,2744 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 4399,2368 L 4399,2368 Z"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id40">
+        <path fill="rgb(153,204,255)" stroke="none" d="M 4871,3489 C 4711,3650 4548,3732 4495,3679 4442,3626 4524,3463 4685,3303 4845,3142 5008,3060 5061,3113 5114,3166 5032,3329 4871,3489 Z M 5154,3206 L 5154,3206 Z M 4400,3586 L 4400,3586 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 4871,3489 C 4711,3650 4548,3732 4495,3679 4442,3626 4524,3463 4685,3303 4845,3142 5008,3060 5061,3113 5114,3166 5032,3329 4871,3489 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 5154,3206 L 5154,3206 Z"/>
+        <path fill="none" stroke="rgb(0,0,0)" d="M 4400,3586 L 4400,3586 Z"/>
+       </g>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id41">
+       <path fill="none" stroke="rgb(102,51,0)" stroke-width="200" d="M 8100,800 L 8100,9600"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id42">
+       <path fill="none" stroke="rgb(102,51,0)" stroke-width="200" d="M 8100,900 L 2100,900"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id43">
+       <path fill="none" stroke="rgb(102,51,0)" stroke-width="200" d="M 2100,800 L 2100,2900"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id44">
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 600,3900 L 3600,3900"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id45">
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 600,5900 L 3600,5900"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id46">
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 600,6900 L 3600,6900"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id47">
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 600,7900 L 3600,7900"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.ConnectorShape">
+      <g id="id48">
+       <path fill="none" stroke="rgb(51,51,255)" stroke-width="60" d="M 12099,9100 L 12099,8500 12101,8500 12101,8330"/>
+       <path fill="rgb(51,51,255)" stroke="none" d="M 12101,7900 L 11951,8350 12251,8350 12101,7900 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id49">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="4850" y="4807"><tspan fill="rgb(0,0,0)" stroke="none">Режим 1</tspan></tspan></tspan><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="4850" y="5290"><tspan fill="rgb(0,0,0)" stroke="none">Режим 2</tspan></tspan></tspan><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="4850" y="5773"><tspan fill="rgb(0,0,0)" stroke="none">Режим 3</tspan></tspan></tspan><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="4850" y="6256"><tspan fill="rgb(0,0,0)" stroke="none">Выкл</tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id50">
+       <path id="Id_FanMode1" fill="rgb(255,255,255)" stroke="none" d="M 4550,4500 C 4635,4500 4700,4565 4700,4650 4700,4735 4635,4800 4550,4800 4465,4800 4400,4735 4400,4650 4400,4565 4465,4500 4550,4500 Z M 4400,4500 L 4400,4500 Z M 4701,4801 L 4701,4801 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4550,4500 C 4635,4500 4700,4565 4700,4650 4700,4735 4635,4800 4550,4800 4465,4800 4400,4735 4400,4650 4400,4565 4465,4500 4550,4500 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4400,4500 L 4400,4500 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4701,4801 L 4701,4801 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id51">
+       <path id="Id_FanMode2" fill="rgb(255,255,255)" stroke="none" d="M 4550,5000 C 4635,5000 4700,5065 4700,5150 4700,5235 4635,5300 4550,5300 4465,5300 4400,5235 4400,5150 4400,5065 4465,5000 4550,5000 Z M 4400,5000 L 4400,5000 Z M 4701,5301 L 4701,5301 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4550,5000 C 4635,5000 4700,5065 4700,5150 4700,5235 4635,5300 4550,5300 4465,5300 4400,5235 4400,5150 4400,5065 4465,5000 4550,5000 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4400,5000 L 4400,5000 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4701,5301 L 4701,5301 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id52">
+       <path id="Id_FanMode3" fill="rgb(255,255,255)" stroke="none" d="M 4550,5500 C 4635,5500 4700,5565 4700,5650 4700,5735 4635,5800 4550,5800 4465,5800 4400,5735 4400,5650 4400,5565 4465,5500 4550,5500 Z M 4400,5500 L 4400,5500 Z M 4701,5801 L 4701,5801 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4550,5500 C 4635,5500 4700,5565 4700,5650 4700,5735 4635,5800 4550,5800 4465,5800 4400,5735 4400,5650 4400,5565 4465,5500 4550,5500 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4400,5500 L 4400,5500 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4701,5801 L 4701,5801 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id53">
+       <path id="IdStatusConnect" fill="rgb(255,51,51)" stroke="none" d="M 20500,400 C 20613,400 20700,487 20700,600 20700,713 20613,800 20500,800 20387,800 20300,713 20300,600 20300,487 20387,400 20500,400 Z M 20300,400 L 20300,400 Z M 20701,801 L 20701,801 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 20500,400 C 20613,400 20700,487 20700,600 20700,713 20613,800 20500,800 20387,800 20300,713 20300,600 20300,487 20387,400 20500,400 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 20300,400 L 20300,400 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 20701,801 L 20701,801 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id54">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="12466" y="7161"><tspan id="IdWaterLvl" fill="rgb(0,0,0)" stroke="none"> </tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id55">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="11867" y="6516"><tspan fill="rgb(0,0,0)" stroke="none">Уровень ОЖ</tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id56">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="16164" y="6516"><tspan id="IdTColling" fill="rgb(0,0,0)" stroke="none"> </tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id57">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="3360" y="9846"><tspan id="IdTCold" fill="rgb(0,0,0)" stroke="none"> </tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id58">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="9060" y="562"><tspan id="IdT_Hot" fill="rgb(0,0,0)" stroke="none"> </tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id59">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="3060" y="616"><tspan id="IdTOut" fill="rgb(0,0,0)" stroke="none"> </tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id60">
+       <path id="Id_StatusPump2" fill="rgb(255,255,255)" stroke="none" d="M 20601,7100 L 20901,7601 20300,7601 20601,7100 Z M 20300,7100 L 20300,7100 Z M 20901,7601 L 20901,7601 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 20601,7100 L 20901,7601 20300,7601 20601,7100 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id61">
+       <path id="Id_FanModeOff" fill="rgb(255,255,255)" stroke="none" d="M 4550,6000 C 4635,6000 4700,6065 4700,6150 4700,6235 4635,6300 4550,6300 4465,6300 4400,6235 4400,6150 4400,6065 4465,6000 4550,6000 Z M 4400,6000 L 4400,6000 Z M 4701,6301 L 4701,6301 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4550,6000 C 4635,6000 4700,6065 4700,6150 4700,6235 4635,6300 4550,6300 4465,6300 4400,6235 4400,6150 4400,6065 4465,6000 4550,6000 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4400,6000 L 4400,6000 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4701,6301 L 4701,6301 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id62">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="16950" y="706"><tspan fill="rgb(0,0,0)" stroke="none">Связь с сервером:</tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.RectangleShape">
+      <g id="id63">
+       <path fill="rgb(255,255,255)" stroke="none" d="M 10450,1200 L 9500,1200 9500,600 11400,600 11400,1200 10450,1200 Z"/>
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan id="Id_StatusT_Hot" class="TextPosition" x="9789" y="1040"><tspan  fill="rgb(0,0,0)" stroke="none"> </tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.RectangleShape">
+      <g id="id64"/>
+     </g>
+     <g class="com.sun.star.drawing.RectangleShape">
+      <g id="id65">
+       <path fill="rgb(255,255,255)" stroke="none" d="M 17750,7200 L 16800,7200 16800,6600 18700,6600 18700,7200 17750,7200 Z"/>
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="17089" y="7040"><tspan id="Id_StatusT_Colling" fill="rgb(0,0,0)" stroke="none"> </tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.RectangleShape">
+      <g id="id66">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan id="Id_StatusT_Out" class="TextPosition" x="3489" y="1440"><tspan fill="rgb(0,0,0)" stroke="none"> </tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id67">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="16450" y="10672"><tspan id="IdCurrentTime" fill="rgb(0,0,0)" stroke="none"> </tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.CustomShape">
+      <g id="id68">
+       <path fill="rgb(255,255,255)" stroke="none" d="M 11071,11100 L 9371,11100 9371,9100 12771,9100 12771,11100 11071,11100 Z"/>
+       <path fill="none" stroke="rgb(0,0,0)" stroke-width="20" d="M 11071,11100 L 9371,11100 9371,9100 12771,9100 12771,11100 11071,11100 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id69">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="10085" y="9668"><tspan fill="rgb(0,0,0)" stroke="none">Расход ОЖ</tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id70">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="10319" y="10239"><tspan id="IdConsumption" fill="rgb(0,0,0)" stroke="none"> </tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id71">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="10421" y="10749"><tspan id="Id_StatusConsumption" fill="rgb(0,0,0)" stroke="none">Норма</tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id72">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="650" y="3556"><tspan fill="rgb(0,0,0)" stroke="none">Теплообменник</tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id73">
+       <path fill="none" stroke="rgb(102,51,0)" stroke-width="200" d="M 9100,800 L 9100,5100"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id74">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Times New Roman, serif" font-size="423px" font-weight="400"><tspan id="Id_StatusT_Cold" class="TextPosition" x="4028" y="10771"><tspan fill="rgb(0,0,0)" stroke="none"> </tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id75">
+       <path fill="none" stroke="rgb(102,51,0)" stroke-width="200" d="M 8100,900 L 9100,900"/>
+      </g>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
+
+						
+							</div>	
+
+						  </th>
+						</tr>
+						<tr>
+						  <th colspan="2" id=""><strong>Лог аварий</strong></th>
+						</tr>
+						<tr>
+						  <th colspan="2" id="">
+							<!-- ------------------------Журнал аварий-------------------------- -->
+							<div id="crash_Log"></div>
+							<!-- ------------------------End-------------------------- -->
+						  </th>
+						</tr>
+			  </table>
+			</div>		
+<!-- ================================Весь журнал аварий===========================================-->
+			<div id="AllLogError" hidden="true">
+				<table width="75%" border="1" cellspacing="1" cellpadding="1" id="center_tabl" >
+						<tr>
+						  <th colspan="2" id=""><strong>Лог аварий</strong></th>
+						</tr>
+						<tr>
+						  <th colspan="2" id="">
+							<!-- ------------------------Журнал аварий-------------------------- -->
+							<div id="ALL_crash_Log"></div>
+							<!-- ------------------------End-------------------------- -->
+						  </th>
+						</tr>					
+			  </table>
+			</div>
+<!-- ============================Cтраница Help=====================================================-->
+			<div id="ShowHelp" hidden="true">
+<pre>
+===============================================================================
+				Trap
+===============================================================================
+Формируется TRAP по SNMPv1.
+1.3.6.1.4.80 OID устройства.
+- TrapOID .1.3.6.1.4.4.
+TrapOID.1 - Температура уличная изменила статус на аварию 
+TrapOID.2 - Температура уличная изменила статус на норму
+TrapOID.3 - Температура горячая изменила статус на аварию
+TrapOID.4 - Температура горячая изменила статус на норму
+TrapOID.5 - Температура охлаждения изменила статус на аварию
+TrapOID.6 - Температура охлаждения изменила статус на норму
+TrapOID.7 - Температура холодная изменила статус на аварию
+TrapOID.8 - Температура холодная изменила статус на норму
+TrapOID.9 - Уровень жидкости стал меньше минимального
+TrapOID.10 - Уровень жидкости в норме
+TrapOID.11 - Расход ОЖ меньше минимального 
+TrapOID.12 - Расход ОЖ в норме 
+================================================================================
+			Переменные, доступные через SNMP
+================================================================================
+sysUpTime		- 1.3.6.1.2.1.1.3.0
+sysName			- 1.3.6.1.2.1.1.5.0				[AlphaNet]
+
+- OID .1.3.6.1.4.3.
+
+
+- Температура уличная (гр.С)					- OID.1		INTEGER		1 байт
+- Температура горячая (гр.С)					- OID.2		INTEGER		1 байт
+- Температура холодная (гр.С)					- OID.3		INTEGER		1 байт
+- Температура охлаждения (гр.С)					- OID.4		INTEGER		1 байт
+
+- Статус температуры уличной					- OID.5		INTEGER		1 байт
+- Статус температура горячей					- OID.6		INTEGER		1 байт
+- Статус температуры холодной					- OID.7		INTEGER		1 байт
+- Статус температуры охлаждения					- OID.8		INTEGER		1 байт
+Где	0 - норма 1 - Предупреждение 2 - Авария 3 - КЗ
+
+- Уровень ОЖ 							- OID.9		INTEGER		1 байт
+Где 0 - норма, 1 - авария
+- Расход жидкости (л/ч)						- OID.10	INTEGER		4 байт
+- Статус расхода жидкости 					- OID.11	INTEGER		1 байт
+Где	0- Норма 2-Авария
+
+- Режим работы вентилятора 					- OID.12	INTEGER		1 байт
+Где	0 - Режим 1,
+	1 - Режим 2,
+	2 - Режим 3,
+	3 - Режим Выкл,
+- Наименование блока			  			- OID.13	INTEGER		1 байт	
+- Серийный номер			  			- OID.14	INTEGER		1 байт	
+</pre>
+				
+			</div>
+<!-- ==============================================================================================-->
+			<div id="page_set" hidden="true">
+			<form id="FormPageSetting">
+					<table width="75%" border="1" cellspacing="1" cellpadding="1" id="center_tabl" >
+							<tr>
+							  <th colspan="3" id="table_1" scope="col"><strong>Настройки усилителя</strong></th>
+							</tr>
+							<tr>
+							  <th width="198"  id="table_left">Наименование блока</th>
+							  <th width="545" colspan="2"  id="table_right">
+								<div align="center">
+								  <input id="id_NameOfTheUnit" name="Ip_adress" type="text" class="require ">
+								</div>
+							  </th>
+							</tr>
+							<!-- ------------------------------------------------------------ -->
+							<tr>
+							  <th id="table_left">Серийный номер</th>
+							  <td colspan="2" id="table_right"><div align="center">
+								<input id="Id_SerNumber" name="gateway2" class="require" accept-charset="utf-8">
+							  </div></td>
+							</tr>
+							<!-- ------------------------------------------------------------ -->
+							  <tr>
+							  <th id="table_left">MAC-адрес</th>
+							  <td colspan="2" id="table_right">
+								<div align="center">
+								  <input id="Id_MacAddr"  name="gateway" class="require Mac">
+								</div></td>
+							</tr>
+							<!-- ------------------------------------------------------------ -->
+							<th  id="table_1" colspan="3">
+								<strong>Пороги Т на переключении режимов</strong>
+								<input id="id_checkbox_kalib" type="checkbox" name="checkbox_kalib" value="checkbox">
+							</th>
+							<!-- ------------------------------------------------------------ -->
+							<tr>
+							  <th id="table_left">На подъем</th>
+							  <td colspan="2" id="table_right">
+								<div align="center">
+								  Выкл&#8594;3:<input disabled="true" class="TlimInput" id="Id_T1_lim_Up"  name="N_T_lim_Up">
+								  3&#8594;2:<input disabled="true" class="TlimInput" id="Id_T2_lim_Up"  name="N_T_lim_Up">
+								  2&#8594;1:<input disabled="true" class="TlimInput" id="Id_T3_lim_Up"  name="N_T_lim_Up">
+								</div></td>
+							</tr>							
+							<!-- ------------------------------------------------------------ -->
+							<tr>
+							  <th id="table_left">На спад</th>
+							  <td colspan="2" id="table_right">
+								<div align="center">
+								  Выкл&#8592;3:<input disabled="true" class="TlimInput"  id="Id_T4_lim_Down"  name="N_T_lim_Down">
+								  3&#8592;2:<input disabled="true" class="TlimInput" id="Id_T5_lim_Down"  name="N_T_lim_Down">
+								  2&#8592;1:<input disabled="true" class="TlimInput" id="Id_T6_lim_Down"  name="N_T_lim_Down">
+								</div></td>
+							</tr>			
+							<!-- ------------------------------------------------------------ -->
+							<tr>
+							  <th id="table_left">Сохранить</th>
+							  <td colspan="2" id="table_right">
+								<div align="center">
+									<input id="Id_Save_Tlim" type="button" name="N_Save_Tlim" onClick="SaveLimT()" value="Сохранить пороги">
+								</div></td>
+							</tr>								
+							<!-- ------------------------------------------------------------ -->
+							<tr>
+							  <th id="table_left">Очистить журнал</th>
+							  <th colspan="2" id="table_right">
+								<div align="center">
+								  <input id="Id_clear_log" type="button" name="N_Kalib_Clear_log" onClick="clear_log()" value="Очистить журнал">
+								</div></th>					  
+							</tr>							
+							<!-- ------------------------------------------------------------ -->
+							<th  id="table_1" colspan="3"><strong>Новый пароль</strong></th>
+							<tr>
+							  <th id="table_left">Введите пароль</th>
+							  <th colspan="2" id="table_right">
+								<div align="center">
+								  <input id="Id_NewPasword" name="N_Newpas" class="Community">
+								</div></th>
+							</tr>
+							<tr>
+							  <th id="table_left">Повторите пароль</th>
+							  <th colspan="2" id="table_right">
+								<div align="center">
+									<input id="Id_DublPasword" name="N_Dublpas" class="Community">
+							  </div></th>
+							</tr>
+							<tr>
+							  <th colspan="3" id="table_1"><strong>Текущий пароль</strong></th>
+							</tr>
+							<tr>
+							  <th id="table_left">Введите пароль</th>
+							  <th colspan="2" id="table_right"><div align="center" >
+									<input id="Id_Pasword" type="password" class="require Community">
+							  </div></th>
+							</tr>
+							  <tr>
+							  <th colspan="3" id="table_1" scope="col">
+								<!-- <input name="But_set" type="button" onClick="SavePageSetting()" value="Сохранить"> -->
+								<button name="send_form1" type="submit">Сохранить</button>
+							  </th>
+							</tr>
+				</table>					
+			</form>
+			</div>
+<script type="text/javascript">
+document.forms['FormPageSetting'].onsubmit = function(){
+	var Result=validator.check(this);
+	if(Result==false){
+		return  false;
+	}
+		SavePageSetting()
+		return  false;
+}
+</script>				
+<!-- ==============================================================================================-->			
+			<div id="page_status" hidden="true">	<!-- PO-page_options -->
+			<form id="FormPageOptions">
+		       <table width="75%" border="1" cellspacing="1" cellpadding="1" id="center_tabl" >
+            <tr>
+              <th colspan="3" id="table_left" scope="col">Адрес устройства</th>
+            </tr>
+            <tr>
+              <th width="37%" id="table_left">IP-адрес</th>
+              <th width="46%" id="table_right">
+                <input id="po_id_ip_adress" name="Ip_adress" class="require ipv4">              
+			</th>
+            </tr>
+            <tr>
+              <th id="table_left">Маска подсети</th>
+              <th id="table_right">
+                <input id="po_id_Subnet_Mask" name="Subnet_Mask" class="require ipv4">&nbsp;              </th>
+
+            </tr>
+            <tr>
+              <th id="table_left">Шлюз</th>
+              <th colspan="2" id="table_right">
+                <input id="po_id_gateway" name="gateway" class="require ipv4">              </th>
+            </tr>
+            <tr>
+              <th colspan="3" id="table_left">Управление устройством</th>
+            </tr>
+        
+            <tr>
+              <th id="table_left">IP-адрес 1 </th>
+              <th colspan="2" id="table_right" >
+                <input id="po_id_Ip_adress_access1" name="Ip_adress_access1" class=" ip_Mask">              </th>
+            </tr>
+            <tr>
+              <th id="table_left">IP-адрес 2 </th>
+              <th colspan="2" id="table_right" >
+                 <input id="po_id_Ip_adress_access2" name="Ip_adress_access2" class=" ip_Mask" >               </th>
+            </tr>
+            <tr>
+              <th id="table_left">IP-адрес 3 </th>
+              <th colspan="2" id="table_right">
+                <input id="po_id_Ip_adress_access3" name="Ip_adress_access3" class=" ip_Mask">
+              </th>
+            </tr>
+            <tr>
+              <th id="table_left">IP-адрес 4 </th>
+              <th colspan="2" id="table_right">
+				<input id="po_id_Ip_adress_access4" name="Ip_adress_access4" class=" ip_Mask">
+			  </th>
+            </tr>
+            <tr>
+              <th colspan="3" id="table_left">SNMP агент</th>
+            </tr>
+            <tr>
+              <th id="table_left">Community Read</th>
+              <th colspan="2" id="table_right">
+                <input id="po_id_Ip_Community_Read" name="Community_Read" class="require Community"></th>
+            </tr>
+            <tr>
+              <th id="table_left">Community Write </th>
+              <th colspan="2" id="table_right">
+				<input  id="po_id_Ip_Community_Write" name="Community_Write" class="require Community">
+			</th>
+            </tr>
+            <tr>
+              <th colspan="3" id="table_left">TRAP сервер 1 <span id="table_right">
+                <input id="po_id_checkbox_trap_1" type="checkbox" name="checkbox_trap_1" value="checkbox">
+              </span></th>
+            </tr>
+            <tr>
+              <th id="table_left">IP-адрес</th>
+              <th colspan="2" id="table_right">
+				<input id="po_id_Ip_Trap_server_1" name="Trap_server_1" class="require ipv4">
+			</th>
+            </tr>
+            <tr>
+              <th id="table_left">Порт</th>
+              <th colspan="2" id="table_right">
+				<input id="po_id_Trap_server_1_port"  name="Trap_server_1_port" class="require Port">
+			  </th>
+            </tr>
+            <tr>
+              <th id="table_left">Community</th>
+              <th colspan="2" id="table_right"><input id="po_id_Trap_server_1_Community" name="Trap_server_pass_1" class="require Community"></th>
+            </tr>
+            <tr>
+              <th colspan="3" id="table_left">TRAP сервер 2 <span id="table_right">
+                <input id="po_id_checkbox_trap_2" type="checkbox" name="checkbox_trap_2" value="34">
+              </span></th>
+            </tr>
+            <tr>
+              <th id="table_left">IP-адрес</th>
+              <th colspan="2" id="table_right"><input id="po_id_Ip_Trap_server_2" name="Trap_server_2" class="require ipv4"></th>
+            </tr>
+            <tr>
+              <th id="table_left">Порт</th>
+              <th colspan="2" id="table_right">
+				<input id="po_id_Trap_server_2_port" name="Trap_server_2_port" class="require Port">
+			  </th>
+            </tr>
+            <tr>
+              <th id="table_left">Community</th>
+              <th colspan="2" id="table_right">
+				<input id="po_id_Trap_server_2_Community" name="Trap_server_pass_2" class="require Community">
+			  </tr>
+			  <tr>
+              <th colspan="3" id="table_left">
+					<!-- <input name="button" type="button" onClick="SavePageOptions()" value="Сохранить"> -->
+					<button name="send_form" type="submit">Сохранить</button>
+		  </th>
+            </tr>
+          </table>			
+			</form>
+		</div>
+		</div>
+
+<script type="text/javascript">
+
+
+
+document.forms['FormPageOptions'].onsubmit = function(){
+	var Result=validator.check(this);
+	if(Result==false){
+		return  false;
+	}
+		SavePageOptions();
+		return  false;
+}
+
+var ksdhdfkgj = document.getElementById('id19');
+
+</script>			
+		
+</div>
+</body>
+</html>

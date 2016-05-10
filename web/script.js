@@ -188,16 +188,11 @@ function CheckConnection(){
 var IdTimeGetVar;
 function PageCondition() {
 	//------------------------------------------------------------------
-	// document.getElementById("IdPageCondition").disabled=false;	
-	// document.getElementById("IdPageOptions").disabled=false;
-	// document.getElementById("IdPageSetting").disabled=false;	
-	// document.getElementById("IdShowAllError").disabled=false;
-	// document.getElementById("IdHelp").disabled=false;
-	PAGE_STATUS.style.display="none";
-	PAGE_TABL.style.display="none";
-	PAGE_SET.style.display="none";
-	PAGE_ALL_ERROR.style.display="none";
-	PAGE_HELP.style.display="none";	
+	document.getElementById("IdPageCondition").disabled=false;	
+	document.getElementById("IdPageOptions").disabled=false;
+	document.getElementById("IdPageSetting").disabled=false;	
+	document.getElementById("IdShowAllError").disabled=false;
+	document.getElementById("IdHelp").disabled=false;
 	//------------------------------------------------------------------
 	StatusAbort=UserAbbort;
 	//------------------------------------------------------------------
@@ -226,26 +221,26 @@ function PageCondition() {
 	//document.getElementsByName("But_var").disabled=true;
 	//va1.disabled="false";
 	//------------------------------------------------------------
-	// GetSettingTimeout3('PageCondition.CGI',Single,function () {
-		// //------------------------------------------------------------
-		// //GetSettingTimeout3('GetVar.CGI',CYCLIC,Led_On,Led_Off);
-		// //------------------------------------------------------------
-		// var objJSON = eval('({' + this + '})');
-		// //------------------------------------------------------------
-		// var TablNameOfTheUnit = document.getElementById("TablCondNameOfTheUnit");
-		// var TablSerNumber = document.getElementById("TablCondSerNumber");
-		// var TablIpAdress = document.getElementById("TablCond_Ip_adress");
+	GetSettingTimeout3('PageCondition.CGI',Single,function () {
+		//------------------------------------------------------------
+		//GetSettingTimeout3('GetVar.CGI',CYCLIC,Led_On,Led_Off);
+		//------------------------------------------------------------
+		var objJSON = eval('({' + this + '})');
+		//------------------------------------------------------------
+		var TablNameOfTheUnit = document.getElementById("TablCondNameOfTheUnit");
+		var TablSerNumber = document.getElementById("TablCondSerNumber");
+		var TablIpAdress = document.getElementById("TablCond_Ip_adress");
 		
-		// TablNameOfTheUnit.innerHTML=objJSON.NameOfTheUnit;
-		// TablSerNumber.innerHTML=objJSON.SerNumber;
-		// TablIpAdress.innerHTML=objJSON.IP;
-		// //------------------------------------------------------------
-		// clearTimeout(IdTimeGetVar);
-		// IdTimeGetVar=setTimeout(GetVar,100);
-		// //------------------------------------------------------------
+		TablNameOfTheUnit.innerHTML=objJSON.NameOfTheUnit;
+		TablSerNumber.innerHTML=objJSON.SerNumber;
+		TablIpAdress.innerHTML=objJSON.IP;
+		//------------------------------------------------------------
+		clearTimeout(IdTimeGetVar);
+		IdTimeGetVar=setTimeout(GetVar,100);
+		//------------------------------------------------------------
 		
 		
-	// });
+	});
 }
 //==================================================================================================
 function TextBlink1(arr) {
@@ -543,11 +538,18 @@ function PageOptions() {
 	http2.abort();
 	clearInterval(TimerID);
 	//------------------------------
-	PAGE_STATUS.hidden=false;
-	PAGE_SET.hidden=true;
-	PAGE_TABL.hidden=true;
-	PAGE_ALL_ERROR.hidden=true;
-	PAGE_HELP.hidden=true;
+	
+	PAGE_STATUS.style.display="block";
+	PAGE_TABL.style.display="none";
+	PAGE_SET.style.display="none";
+	PAGE_ALL_ERROR.style.display="none";
+	PAGE_HELP.style.display="none";		
+	
+	// PAGE_STATUS.hidden=false;
+	// PAGE_SET.hidden=true;
+	// PAGE_TABL.hidden=true;
+	// PAGE_ALL_ERROR.hidden=true;
+	// PAGE_HELP.hidden=true;
 	//------------------------------
 
 		var PageOpt_Inpun_IP = document.getElementById("po_id_ip_adress");
@@ -629,12 +631,19 @@ function PageSetting() {
 	StatusAbort=UserAbbort;
 	http2.abort();
 	clearInterval(TimerID);
-	PAGE_STATUS.hidden=true;
-	PAGE_SET.hidden=false;
-	PAGE_TABL.hidden=true;
-	PAGE_ALL_ERROR.hidden=true;
+	//-------------------------------------------------------
+	// PAGE_STATUS.hidden=true;
+	// PAGE_SET.hidden=false;
+	// PAGE_TABL.hidden=true;
+	// PAGE_ALL_ERROR.hidden=true;
+	// PAGE_HELP.hidden=true;
+	PAGE_STATUS.style.display="none";
+	PAGE_TABL.style.display="none";
+	PAGE_SET.style.display="block";
+	PAGE_ALL_ERROR.style.display="none";
+	PAGE_HELP.style.display="none";	
+	//-------------------------------------------------------
 	But_var[0].disabled=false;	
-	PAGE_HELP.hidden=true;
 	//------------------------------------------------------------
 	GetSettingTimeout3('PageSettings.CGI',Single,function () {
 		//------------------------------------------------------------
@@ -825,24 +834,17 @@ function ShowAllError() {
 	http2.abort();
 	clearInterval(TimerID);
 
-	PAGE_STATUS.hidden=true;
-	PAGE_SET.hidden=true;
-	PAGE_TABL.hidden=true;
-	//But_var[0].disabled=false;		
-	PAGE_ALL_ERROR.hidden=false;
-	PAGE_HELP.hidden=true;
-	// PAGE_STATUS.hidden=true;
-	// PAGE_SET.hidden=false;
-	// PAGE_TABL.hidden=true;
-	//But_var[0].disabled=false;	
+	PAGE_STATUS.style.display="none";
+	PAGE_TABL.style.display="none";
+	PAGE_SET.style.display="none";
+	PAGE_ALL_ERROR.style.display="block";
+	PAGE_HELP.style.display="none";	
+
 	//----------------------------------------------------------------------------------------------
 	GetSettingTimeout3('ShowAllError.CGI',Single,function () {
 		//------------------------------------------------------------------------------------------
 		var objJSON = eval('(' + this + ')');
 		//---------------------Журнал аварий--------------------------------------------------------
-		// var LogN = document.getElementById("Log1_N");
-		// var LogCont = document.getElementById("Log1_content");
-		// var LogTime = document.getElementById("Log1_time");
 		var content = document.getElementById("ALL_crash_Log");
 		content.innerHTML=" ";
 		//-------------------------------------

@@ -1,18 +1,17 @@
-//<SCRIPT LANGUAGE='JavaScript'>
-const ExistError=1;   
-const NotError=0;   
-
-const CYCLIC=0;		//циклический вызов функции
-const Single=1;	//Одноразовый вызов функции
-
-
 var intervalID;
+var ExistError=1;
+var NotError=0;   
+
+var CYCLIC=0;		//циклический вызов функции
+var Single=1;	//Одноразовый вызов функции
+
+
 var TimerID;
 var http1 = createRequestObject();
 var http2 = createRequestObject();
 
-const UserAbbort=1;
-const ClearAbbort=0;
+var UserAbbort=1;
+var ClearAbbort=0;
 var StatusAbort=ClearAbbort;
 
 var TimerID_blink = new Array(10);
@@ -22,11 +21,11 @@ var TimerID_blink = [];
 
 //const RGB_STATUS_NORM="rgb(76,153,0)";
 //const RGB_STATUS_NORM="rgb(0,204,0)";
-const RGB_STATUS_NORM="rgb(33,114,17)";
-const RGB_STATUS_ADMONITION="rgb(255,128,0)";
-const RGB_STATUS_ERROR="rgb(255,0,0)";
-const RGB_WHITE="rgb(255,255,255)";
-const RGB_BLEK="rgb(0,0,0)";
+var RGB_STATUS_NORM="rgb(33,114,17)";
+var RGB_STATUS_ADMONITION="rgb(255,128,0)";
+var RGB_STATUS_ERROR="rgb(255,0,0)";
+var RGB_WHITE="rgb(255,255,255)";
+var RGB_BLEK="rgb(0,0,0)";
 
 //-------------------------------------------------------------------------------------------------- 
 	var StrResponse;
@@ -113,8 +112,8 @@ const RGB_BLEK="rgb(0,0,0)";
 	//PageCondition();		//Запуск начальной страницы
 	//---------------------------------------------------------------
 	
-const StatusDisconect=0;
-const StatusConect=1;	
+var StatusDisconect=0;
+var StatusConect=1;	
 //==================================================================================================
 var Mode_BlinkConnectSuccessful=0;
 function ConnectSuccessful(){
@@ -189,11 +188,16 @@ function CheckConnection(){
 var IdTimeGetVar;
 function PageCondition() {
 	//------------------------------------------------------------------
-	document.getElementById("IdPageCondition").disabled=false;	
-	document.getElementById("IdPageOptions").disabled=false;
-	document.getElementById("IdPageSetting").disabled=false;	
-	document.getElementById("IdShowAllError").disabled=false;
-	document.getElementById("IdHelp").disabled=false;
+	// document.getElementById("IdPageCondition").disabled=false;	
+	// document.getElementById("IdPageOptions").disabled=false;
+	// document.getElementById("IdPageSetting").disabled=false;	
+	// document.getElementById("IdShowAllError").disabled=false;
+	// document.getElementById("IdHelp").disabled=false;
+	PAGE_STATUS.style.display="none";
+	PAGE_TABL.style.display="none";
+	PAGE_SET.style.display="none";
+	PAGE_ALL_ERROR.style.display="none";
+	PAGE_HELP.style.display="none";	
 	//------------------------------------------------------------------
 	StatusAbort=UserAbbort;
 	//------------------------------------------------------------------
@@ -203,36 +207,45 @@ function PageCondition() {
 	http2.abort();
 	clearInterval(TimerID);
 	//intervalID = setInterval(GetStatusPowerButt,300);
-	PAGE_STATUS.hidden=true;
-	PAGE_TABL.hidden=false;
-	PAGE_SET.hidden=true;
-	PAGE_ALL_ERROR.hidden=true;
-	PAGE_HELP.hidden=true;
+	
+	//style.display = 'block';
+	
+	PAGE_STATUS.style.display="none";
+	PAGE_TABL.style.display="block";
+	PAGE_SET.style.display="none";
+	PAGE_ALL_ERROR.style.display="none";
+	PAGE_HELP.style.display="none";	
+	
+	// PAGE_STATUS.hidden=true;
+	// PAGE_TABL.hidden=false;
+	// PAGE_SET.hidden=true;
+	// PAGE_ALL_ERROR.hidden=true;
+	// PAGE_HELP.hidden=true;
 	//But_var[0].disabled=true;
 	//------------------------------------------------------------
 	//document.getElementsByName("But_var").disabled=true;
 	//va1.disabled="false";
 	//------------------------------------------------------------
-	GetSettingTimeout3('PageCondition.CGI',Single,function () {
-		//------------------------------------------------------------
-		//GetSettingTimeout3('GetVar.CGI',CYCLIC,Led_On,Led_Off);
-		//------------------------------------------------------------
-		var objJSON = eval('({' + this + '})');
-		//------------------------------------------------------------
-		var TablNameOfTheUnit = document.getElementById("TablCondNameOfTheUnit");
-		var TablSerNumber = document.getElementById("TablCondSerNumber");
-		var TablIpAdress = document.getElementById("TablCond_Ip_adress");
+	// GetSettingTimeout3('PageCondition.CGI',Single,function () {
+		// //------------------------------------------------------------
+		// //GetSettingTimeout3('GetVar.CGI',CYCLIC,Led_On,Led_Off);
+		// //------------------------------------------------------------
+		// var objJSON = eval('({' + this + '})');
+		// //------------------------------------------------------------
+		// var TablNameOfTheUnit = document.getElementById("TablCondNameOfTheUnit");
+		// var TablSerNumber = document.getElementById("TablCondSerNumber");
+		// var TablIpAdress = document.getElementById("TablCond_Ip_adress");
 		
-		TablNameOfTheUnit.innerHTML=objJSON.NameOfTheUnit;
-		TablSerNumber.innerHTML=objJSON.SerNumber;
-		TablIpAdress.innerHTML=objJSON.IP;
-		//------------------------------------------------------------
-		clearTimeout(IdTimeGetVar);
-		IdTimeGetVar=setTimeout(GetVar,100);
-		//------------------------------------------------------------
+		// TablNameOfTheUnit.innerHTML=objJSON.NameOfTheUnit;
+		// TablSerNumber.innerHTML=objJSON.SerNumber;
+		// TablIpAdress.innerHTML=objJSON.IP;
+		// //------------------------------------------------------------
+		// clearTimeout(IdTimeGetVar);
+		// IdTimeGetVar=setTimeout(GetVar,100);
+		// //------------------------------------------------------------
 		
 		
-	});
+	// });
 }
 //==================================================================================================
 function TextBlink1(arr) {
@@ -251,11 +264,17 @@ function TextBlink1(arr) {
 //==================================================================================================
 function ShowHelp(){
 
-	PAGE_STATUS.hidden=true;
-	PAGE_TABL.hidden=true;
-	PAGE_SET.hidden=true;
-	PAGE_ALL_ERROR.hidden=true;
-	PAGE_HELP.hidden=false;	
+	PAGE_STATUS.style.display="none";
+	PAGE_TABL.style.display="none";
+	PAGE_SET.style.display="none";
+	PAGE_ALL_ERROR.style.display="none";
+	PAGE_HELP.style.display="block";	
+
+	// PAGE_STATUS.hidden=true;
+	// PAGE_TABL.hidden=true;
+	// PAGE_SET.hidden=true;
+	// PAGE_ALL_ERROR.hidden=true;
+	// PAGE_HELP.hidden=false;	
 	
 }	
 //==================================================================================================	
